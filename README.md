@@ -185,7 +185,7 @@ Le gros tableau de littéraux obfusqués est retourné par ``` OkZcOn$CM()```  :
       return OkZcOn$CM();
     }
 
-Juste après, un **IIFE**) « rotateur » désaligne le tableau en déplaçant les éléments jusqu’à atteindre une **)valeur cible**) :
+Juste après, un **IIFE** « rotateur » désaligne le tableau en déplaçant les éléments jusqu’à atteindre une **valeur cible** :
 
     (function(xnKeq, NFPyfGibUHBthJn) {
       const sCBQY = Sz_DwrsHS$IEXWM,
@@ -208,14 +208,14 @@ Juste après, un **IIFE**) « rotateur » désaligne le tableau en déplaçant l
 
 ### But de ce rotateur
 
-*Empêcher qu’un **index** sCBQY(0x123) pointe toujours la **même chaîne** d’une exécution à l’autre.
-*Après la rotation, les indices **« logiques »** (0x83, 0x104, etc.) pointent vers des **entrées différentes** du tableau initial, mais **cohérentes** dans cette exécution.
+* Empêcher qu’un **index** sCBQY(0x123) pointe toujours la **même chaîne** d’une exécution à l’autre.
+* Après la rotation, les indices **« logiques »** (0x83, 0x104, etc.) pointent vers des **entrées différentes** du tableau initial, mais **cohérentes** dans cette exécution.
 
 >**Déobfuscation** : on peut ignorer la rotation en **décodant directement** les chaînes hex avec le **XOR 0x7E (point 1)**, ou **laisser courir** la boucle en sandbox (sans réseau) puis **aspirer** les valeurs en clair une fois que le cache est rempli.
 
 ### 2.b) Le cache d’index/décode (memoization)
 
-La même fonction Sz_DwrsHS$IEXWM contient un petit cache pour éviter de redécoder :
+La même fonction ```Sz_DwrsHS$IEXWM``` contient un petit cache pour éviter de redécoder :
 
     const GoB_rl = YnxyTLy_GmKbaQfqQNQK[Math.max(0x1bc, 0x1bc) + ...]; // offset d'index
     const IqJiLbJCxkitQYIy_Z$u = mTIqG$tlNYsKmkxNVAGDoG + GoB_rl;
@@ -235,9 +235,9 @@ La même fonction Sz_DwrsHS$IEXWM contient un petit cache pour éviter de redéc
 
 #### En résumé
 
-* (1) Le décodeur (``` PDAGFbKHLK_nQSPfN$wXGLHy``` ) prend des chaînes hex, fait un XOR 0x7E octet par octet, puis UTF-8 → on récupère tous les littéraux (sélecteurs, textes, adresses, etc.).
+* (1) Le décodeur (``` PDAGFbKHLK_nQSPfN$wXGLHy``` ) prend des **chaînes hex**, fait un **XOR 0x7E** octet par octet, puis **UTF-8** → on récupère **tous les littéraux** (sélecteurs, textes, adresses, etc.).
 
-* (2) Le rotateur ne sert qu’à casser les indices du tableau à l’exécution (rotation jusqu’à une somme cible). Le cache évite de redécoder deux fois la même entrée une fois l’indice « réel » stabilisé.  
+* (2) Le **rotateur** ne sert qu’à casser **les indices** du tableau à l’exécution (rotation jusqu’à une somme cible). Le **cache** évite de redécoder deux fois la même entrée une fois l’indice « réel » stabilisé.  
 
 ### Le payload en résumé
 
