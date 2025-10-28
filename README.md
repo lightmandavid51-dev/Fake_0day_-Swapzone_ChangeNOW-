@@ -147,7 +147,7 @@ Il est créé une seule fois (memoization via ```PGgaEb```) et sert à décoder 
 * ```HA__vrJ``` : chaîne **hex** (ex: ```"745e5e..."```)  
 * ```match(/.{1,2}/g)``` → découpe en octets  
 * ```parseInt(.., 16)``` (la base 16 est masquée par une expression qui retombe à 16)  
-* XOR chaque octet avec la **clé** ```zwleENnp... (qui, une fois évaluée, **vaut 0x7E (126))**
+* XOR chaque octet avec la **clé** ```zwleENnp...``` (qui, une fois évaluée, **vaut 0x7E (126))**
 * ```extDecoder().decode(...)``` → chaîne UTF-8 **en clair** .
 
 ### Où c’est utilisé
